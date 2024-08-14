@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// Convert a DetailDTO to SaleDetail
 func ConvertDetailDTOToSaleDetail(dto dto.DetailDTO) models.SaleDetail {
 	return models.SaleDetail{
 		ID:        dto.ID,
@@ -17,7 +16,6 @@ func ConvertDetailDTOToSaleDetail(dto dto.DetailDTO) models.SaleDetail {
 	}
 }
 
-// Convert a slice of DetailDTO to a slice of SaleDetail
 func ConvertDetailsDTOToSaleDetails(details []dto.DetailDTO) []models.SaleDetail {
 	saleDetails := make([]models.SaleDetail, len(details))
 	for i, detail := range details {
@@ -26,7 +24,6 @@ func ConvertDetailsDTOToSaleDetails(details []dto.DetailDTO) []models.SaleDetail
 	return saleDetails
 }
 
-// Make a sale by processing the details and updating stock
 func MakeSale(customerID int, details []dto.DetailDTO) (models.Sale, error) {
 	total := 0.0
 	for _, detail := range details {
